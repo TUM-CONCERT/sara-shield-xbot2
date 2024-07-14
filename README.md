@@ -70,5 +70,13 @@ This should open a large window with status "Running" in the top left corner. If
 
 **Open Rviz** for visualization (with the command ```rviz```) and **start the xbot plugin** by pressing the button `sara_shield_xbot2` in the xbot2 gui. The visualization topics are listed in the namespace `sara_shield\*` and can be visualized by adding them in Rviz.
 
+## Dependencies:
+- CONCERT: [concert_msgs](https://github.com/ADVRHumanoids/concert_msgs) : Defines a ros message for Humans, using keypoints 
+- Other: 
+    
+   `gazebo_ros`: If the plugin is run in simulation, `gazebo_msgs` are parsed to get the relative transformation between the robot (`base_link`) and the `world` frame   
+    `xbot2` : Used to communicate with the robot    
+    `Eigen3.4`: Used for internal calculations
+
 ## Notes
 1. Sara-shield should always be built in *Release* mode, since the timesteps can take too long otherwise, resulting in crashes (```safety limit violation detected ...```).
