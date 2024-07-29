@@ -78,5 +78,15 @@ This should open a large window with status "Running" in the top left corner. If
     `xbot2` : Used to communicate with the robot    
     `Eigen3.4`: Used for internal calculations
 
+
+## Building after Modifying
+If the project is build according to https://github.com/TUM-CONCERT/sara-shield-stack-CONCERT, (re-)building should be done in the following way:
+```
+cd /home/user/tum_integration_ws/build/sara-shield
+cmake ../../src/sara-shield/safety_shield/
+make -j4 install
+```
+
 ## Notes
 1. Sara-shield should always be built in *Release* mode, since the timesteps can take too long otherwise, resulting in crashes (```safety limit violation detected ...```).
+2. The capsules have to be computed saperately for every robot configuration

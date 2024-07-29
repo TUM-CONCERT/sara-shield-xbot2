@@ -22,7 +22,7 @@ bool SaraShieldXbot2::on_initialize()
     // ros: subscribe to topics and advertise topics
     ros::NodeHandle nh;
     _model_state_sub = nh.subscribe("/gazebo/model_states", 100, &SaraShieldXbot2::modelStatesCallback, this);
-    _human_joint_sub = nh.subscribe("/human_pose_measurement", 100, &SaraShieldXbot2::humanJointCallback, this);
+    _human_joint_sub = nh.subscribe("/sara_shield/human_pose_measurement", 100, &SaraShieldXbot2::humanJointCallback, this);
     _robot_goal_pos_sub = nh.subscribe("/sara_shield/goal_joint_pos", 100, & SaraShieldXbot2::goalJointPosCallback, this);
     _robot_trajectory_sub = nh.subscribe("/sara_shield/trajectory", 100, &SaraShieldXbot2::trajectoryCallback, this);
     _force_safe_sub = nh.subscribe("/sara_shield/force_safe", 100, & SaraShieldXbot2::forceSafeCallback, this);
@@ -33,7 +33,7 @@ bool SaraShieldXbot2::on_initialize()
     _human_marker_pub = nh.advertise<visualization_msgs::MarkerArray>("/sara_shield/human_joint_marker_array", 100);
     _robot_marker_pub = nh.advertise<visualization_msgs::MarkerArray>("/sara_shield/robot_joint_marker_array", 100);
     _robot_current_pos_pub = nh.advertise<std_msgs::Float32MultiArray>("/sara_shield/current_joint_pos", 100);
-    _static_human_pub = nh.advertise<concert_msgs::Humans>("/human_pose_measurement", 100);
+    _static_human_pub = nh.advertise<concert_msgs::Humans>("/sara_shield/human_pose_measurement", 100);
     _sara_shield_safe_pub = nh.advertise<std_msgs::Bool>("/sara_shield/is_safe", 100);
     
     
